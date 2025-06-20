@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"Test worker","id":1}];
+var items = [{"id":1,"group":1,"content":"karate-test[1:9]","start":1750436363975,"end":1750436364798,"title":"karate-test[1:9] 13:19:23.975-13:19:24.798 Delete Character - Unsuccess, not found"},{"id":2,"group":1,"content":"karate-test[2:16]","start":1750436364811,"end":1750436365131,"title":"karate-test[2:16] 13:19:24.811-13:19:25.131 Delete Character - Success"},{"id":3,"group":1,"content":"karate-test[3:23]","start":1750436365138,"end":1750436365594,"title":"karate-test[3:23] 13:19:25.138-13:19:25.594 Create Character - Success"},{"id":4,"group":1,"content":"karate-test[4:30]","start":1750436365601,"end":1750436365921,"title":"karate-test[4:30] 13:19:25.601-13:19:25.921 Create Character - Unsuccess, incomplete, bad request"},{"id":5,"group":1,"content":"karate-test[5:37]","start":1750436365930,"end":1750436366254,"title":"karate-test[5:37] 13:19:25.930-13:19:26.254 Create Character - Unsuccess, duplicate name, bad request"},{"id":6,"group":1,"content":"karate-test[6:46]","start":1750436366262,"end":1750436366592,"title":"karate-test[6:46] 13:19:26.262-13:19:26.592 Create Character - Unsuccess, not found"},{"id":7,"group":1,"content":"karate-test[7:53]","start":1750436366598,"end":1750436366921,"title":"karate-test[7:53] 13:19:26.598-13:19:26.921 Create Character - Success"},{"id":8,"group":1,"content":"karate-test[8:62]","start":1750436366927,"end":1750436367257,"title":"karate-test[8:62] 13:19:26.927-13:19:27.257 List Characters"},{"id":9,"group":1,"content":"karate-test[9:70]","start":1750436367264,"end":1750436367577,"title":"karate-test[9:70] 13:19:27.264-13:19:27.577 Search character by ID - Success, 200"},{"id":10,"group":1,"content":"karate-test[10:77]","start":1750436367584,"end":1750436367908,"title":"karate-test[10:77] 13:19:27.584-13:19:27.908 Search character by ID - Failure, 404"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
